@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styles from './App.css';
-import Person from './Person/Person';
+import Persons from '../components/Persons/Persons';
 
 class App extends Component {
   state = {
@@ -56,23 +56,18 @@ class App extends Component {
     if (this.state.showPersons) {
       persons = (
         <div>
-          {
-            this.state.persons.map((person, index) => (<Person
-              click={() => this.deletePersonHandler(index)}
-              key={person.id}
-              name={person.name}
-              age={person.age}
-              changed={event => this.nameChangedHandler(event, person.id)}
-            />
-            ))
-          }
+          <Persons
+            persons={this.state.persons}
+            clicked={this.deletePersonHandler}
+            changed={this.nameChangedHandler}
+          />
         </div>
       );
     }
 
     return (
       <div className={styles.App}>
-        <h1>Hi, I{'\''}m a React App</h1>
+        <h1>Hi, I&apos;m a React App</h1>
         <button
           onClick={this.togglePersonsHangler}
           className={styles.Button}
