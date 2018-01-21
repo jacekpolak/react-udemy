@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styles from './App.css';
 import Persons from '../components/Persons/Persons';
+import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component {
   state = {
@@ -67,14 +68,9 @@ class App extends Component {
 
     return (
       <div className={styles.App}>
-        <h1>Hi, I&apos;m a React App</h1>
-        <button
-          onClick={this.togglePersonsHangler}
-          className={styles.Button}
-        >
-          Toggle Persons
-        </button>
-
+        <Cockpit
+          clicked={this.togglePersonsHangler}
+        />
         {persons}
       </div>
     );
