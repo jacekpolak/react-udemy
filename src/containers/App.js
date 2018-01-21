@@ -1,15 +1,28 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import styles from './App.css';
 import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
 
-class App extends Component {
-  state = {
-    persons: [
-      { id: 'asda1', name: 'Jacek', age: 18 },
-      { id: 'czxcz12', name: 'Pati', age: 16 },
-      { id: 'dasd334dfds', name: 'Jarek', age: 49 },
-    ],
+class App extends PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      persons: [
+        { id: 'asda1', name: 'Jacek', age: 18 },
+        { id: 'czxcz12', name: 'Pati', age: 16 },
+        { id: 'dasd334dfds', name: 'Jarek', age: 49 },
+      ],
+    };
+
+    console.log('[App.js] Inside Constructor', props);
+  }
+
+  componentWillMount() {
+    console.log('[App.js] Inside componentWillMount()');
+  }
+
+  componentDidMount() {
+    console.log('[App.js] Inside componentDidMount()');
   }
 
   switchNameHandler = (newName) => {
@@ -52,6 +65,8 @@ class App extends Component {
   }
 
   render() {
+    console.log('[App.js] Inside render()');
+
     let persons = null;
 
     if (this.state.showPersons) {

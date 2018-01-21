@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './Cockpit.css';
 
 const cockpit = props => (
-  <div>
+  <div className={styles.Cockpit}>
     <h1>Hi, I&apos;m a React App</h1>
     <button onClick={props.clicked} className={styles.Button}>Toggle Persons</button>
   </div>
